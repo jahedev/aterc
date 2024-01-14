@@ -24,6 +24,7 @@ app.use(passport.initialize())
 
 app.use("/", require("./routes"))
 app.use("/auth", require("./routes/auth"))
+app.use("/chat", require("./routes/chat"))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

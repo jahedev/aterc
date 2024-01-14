@@ -1,9 +1,11 @@
+require("dotenv").config()
 
-require('dotenv').config();
-const app = require('./app')
+const app = require("./app")
+const WebSocket = require("ws")
+const server = require("http").createServer(app)
+const chat = require("./chat")(server)
+const { PORT } = process.env
 
-const {PORT} = process.env
-
-app.listen(PORT, () => {
-  console.log(`Listening on http://localhost:${PORT}`)
+server.listen(PORT, () => {
+  console.log(`Server listening at http://localhost:${PORT}`)
 })
